@@ -1,0 +1,11 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+<h2 class="is-size-4 has-text-centered"> Добавьте категорию задач </h2>
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить категорию">
+
+
+    </form>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+
+    <h1>Обновление задачи</h1>
+    <form method="POST">
+        {% csrf_token %}    
+        Задача:<br> {{ form.title }}<br>
+        Категория:<br> {{ form.category }}<br>
+        Плановый срок выполнения:<br> {{ form.due_date }}<br>
+        Фактический срок выполнения:<br> {{ form.completed }}<br>
+        Выполнено? {{ form.is_done }}<br>
+        <input type="submit" value="Обновить">
+    </form>
+    <a href="http://127.0.0.1:8000/test_todo/"><button>Вернуться к списку задач</button></a>
+
+{% endblock content %}

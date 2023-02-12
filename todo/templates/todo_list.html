@@ -1,0 +1,25 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+<div style="padding-top: 20px"> </div>
+<a href="http://127.0.0.1:8000/test_cat_add/"><button>Создать новую категорию</button></a>
+<a href="http://127.0.0.1:8000/test_todo_add/"><button>Создать новую задачу</button></a>
+<div style="padding-top: 20px"> </div><h2>Фильтры по задачам</h2> </div>
+<div class="filter-category", style="padding-top: 20px", style="padding-bottom: 20px">
+    <form action="" method="get">
+        {{ filter.form.as_p }}
+        <input type="submit" value="Применить фильтры" />  </form>
+</div>
+<div style="padding-top: 20px"> </div>
+    {% for todo in todo_filter %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Задача: {{ todo.title }}</h4>
+                <h4 class="card-title"> Категория задачи: {{ todo.category }}</h4>
+                <h6 class="task-subtitle mb-2 text-muted">{{ todo.completed_text }}</h6>
+                <a href="{% url 'todo_detail' todo.pk %}" class="{% if todo.is_done%}is_done{%endif%}"> Подробнее о задаче</a>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock content %}

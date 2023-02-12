@@ -1,0 +1,16 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+<h2>  Добавьте задачу </h2>
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Добавить задачу">
+        
+
+    </form>
+    {% for category in categories %}
+    <option class="" value="{{ category.name }}" name="{{ category.name }}">
+        {{ category.name }}</option>
+    {% endfor %}
+
+{% endblock content %}

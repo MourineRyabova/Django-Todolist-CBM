@@ -1,0 +1,24 @@
+{% extends "base_example.html" %}
+
+{% block content %}
+    <article class="todo_detail">
+        <header>
+            
+            <h2>Задача: {{ todo_detail.title }}</h2>
+            <h4>Категория задачи: {{ todo_detail.category }}</h4>
+            <p class="todo-created">Время создания: {{ todo_detail.created }}</p>
+            <p class="todo-created">Плановый срок выполнения: {{ todo_detail.due_date }}</p>
+            <span class="badge {% if todo_detail.is_done %}badge-completed{% else %}badge-pending{%endif%}">
+                {% if todo_detail.is_done %} Выполнено 
+                <p class="todo_detail-completed">Время завершения: {{ todo_detail.completed }}</p>
+                {%else%} Не выполнено 
+                {%endif%}
+            </span>
+            
+        </header>
+    </article>
+    <a href="http://127.0.0.1:8000/test_todo/"><button>Вернуться к списку задач</button></a>
+    <a href="{% url 'todo_edit' todo_detail.pk %}"><button>Обновить задачу</button></a>
+    <a href="{% url 'todo_delete' todo_detail.pk %}"><button>Удалить задачу</button></a>
+    
+{% endblock content %} 

@@ -1,0 +1,13 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+<a href="http://127.0.0.1:8000/test_cat_add/"><button>Создать новую категорию</button></a>
+<div style="padding-top: 20px"> </div>
+    {% for cat in categories %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">{{ cat.name }}</h4>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock content %}

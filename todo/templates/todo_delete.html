@@ -1,0 +1,14 @@
+{% extends 'base_example.html' %}
+
+{% block content %}
+    <h2>Удаление задачи</h2>
+        <form action="" method="post">{% csrf_token %}
+            
+            <p>Вы уверены, что хотите удалить "{{ todo_delete.title }}"?</p>
+            <p class="form-buttons">
+                <input type="submit" value="Удалить">
+                <a href="http://127.0.0.1:8000/test_todo/"></a><button>Отмена</button></a>
+            </p>
+        </form>
+
+{% endblock content %}
