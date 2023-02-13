@@ -31,11 +31,9 @@ from todolist.views import (
 urlpatterns = [
     re_path(r"$^", redirect_view),
     re_path(r"^admin/", admin.site.urls),
-    # re_path(r'^todo/', todo, name="TodoList"),
-    # re_path(r'^category/', category, name="Category"),
     re_path(r"^test_cat/", CatView.as_view()),
     re_path(r"^test_cat_add/", CatAddView.as_view()),
-    re_path(r"^test_todo/", TodoFilterView.as_view()),  # , name="category"),
+    re_path(r"^test_todo/", TodoFilterView.as_view()),  
     re_path(r"^test_todo_add/", ToDoAddView.as_view()),
     path("test_todo_update/<int:pk>/", ToDoUpdateView.as_view(), name="todo_edit"),
     path("test_todo_detail/<int:pk>/", ToDoDetailView.as_view(), name="todo_detail"),
