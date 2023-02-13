@@ -19,11 +19,6 @@ def redirect_view(request):
 
 
 class CatView(ListView):
-    """Представление для отображения списка категорий.
-    
-    .._ https://docs.djangoproject.com/en/4.1/ref/class-based-views/generic-display/#detailview
-    """
-
     model = Category
     context_object_name = "categories"
     template_name = "cat_list.html"
@@ -46,13 +41,13 @@ class ToDoAddView(CreateView):
     success_url = "/test_todo/"
 
 
-class TodoFilter(FilterSet):
+class TodoFilter(FilterSet): #настройка фильтрации
     class Meta:
         model = TodoList
         fields = ["category", "is_done"]
 
 
-class TodoFilterView(FilterView):
+class TodoFilterView(FilterView): 
     model = TodoList
     context_object_name = "todo_filter"
     filterset_class = TodoFilter
