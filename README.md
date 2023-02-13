@@ -26,3 +26,4 @@ http://127.0.0.1:8000/
 
 Запуск приложения осуществляется командой *python manage.py* runserver из папки с одноимённым файлом
 
+![image](https://user-images.githubusercontent.com/88885135/218396629-6f5c3b12-a89d-4c0e-bab7-2ed56a2c1722.png)
