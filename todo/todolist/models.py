@@ -23,7 +23,7 @@ class Category(models.Model):  # Таблица категория котора�
 
 
 class TodoList(models.Model):
-    is_done = models.BooleanField(default=False, help_text="Выполнено ли дело")
+    is_done = models.BooleanField(default=False, help_text="Выполнена ли задача")
     title = models.CharField(max_length=250)
     content = models.TextField(blank=True)  # текстовое поле
     created = models.DateField(auto_now_add=True)  # дата создания
@@ -40,9 +40,6 @@ class TodoList(models.Model):
         Category, default="general", on_delete=models.PROTECT
     )  # foreignkey для таблицы категори
 
-    # def get_absolute_url(self): # Тут мы создали новый метод
-    #       return reverse('todo_detail', args=[int(self.id)])
-    # return reverse('todo_detail', kwargs={"pk": int(self.pk)})
     def save(self, *args, **kwargs) -> None:
         if self.is_done:
             self.completed = datetime.now()
@@ -57,7 +54,7 @@ class TodoList(models.Model):
         else:
             return "Задача не выполнена"
 
-    class Meta:  # используем вспомогательный класс мета для сортировки наших дел
+    class Meta:  # используем вспомогательный класс мета для сортировки наших задач
         # ordering = ["-created"]  # сортировка дел по времени их создания
         ordering = ["due_date"]
 
